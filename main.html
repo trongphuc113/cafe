@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chill Coffe - Trang chủ</title>
+  <style>
+  :root {
+    --brown-900: #2c1810;
+    --green-light: #d9f8f2;
+    --yellow-light: #fff7d1;
+    --pink-light: #ffe0ec;
+    --accent: #ffb347;
+    --accent2: #77dd77;
+  }
+  * {box-sizing: border-box; margin:0; padding:0;}
+  body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--green-light), var(--yellow-light), var(--pink-light));
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    color: var(--brown-900);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  @keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Header */
+  .site-header {
+    position: fixed;
+    top: -100px;
+    left: 0; width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: top 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+    z-index: 1000;
+  }
+  .site-header.show {
+    top: 0; opacity: 1;
+  }
+  .container {max-width:1100px;margin:0 auto;padding:14px 20px;}
+  .header-inner {display:flex;align-items:center;justify-content:space-between;}
+  .logo {
+    font-weight:800;font-size:1.4rem;text-decoration:none;
+    background: linear-gradient(45deg,#ff6b6b,#f7d794,#1dd1a1);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .nav a {
+    margin-left:18px; text-decoration:none; color: var(--brown-900);
+    padding:8px 14px; border-radius:20px;
+    transition: all .3s ease;
+  }
+  .nav a:hover, .nav a[aria-current="page"] {
+    background: linear-gradient(135deg,#ff9ff3,#feca57);
+    color: #fff;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Banner */
+  .banner {
+    position: relative; overflow: hidden; height: 380px; margin-top:80px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .banner-img {
+    width:100%; height:100%; object-fit: cover;
+    transform: scale(1.05);
+    animation: zoomIn 20s ease-in-out infinite alternate;
+    filter: brightness(0.9) saturate(1.2);
+  }
+  .banner::after {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  }
+  @keyframes zoomIn {
+    from {transform: scale(1.05);}
+    to {transform: scale(1.15);}
+  }
+  .banner-text {
+    position: absolute; left: 32px; bottom: 36px;
+    color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    animation: fadeInUp 1.6s ease;
+  }
+  @keyframes fadeInUp {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1; transform: translateY(0);}
+  }
+  .banner-text h1 {margin:0;font-size:2.6rem;}
+  .banner-text p {margin-top:8px;font-size:1.2rem;}
+
+  /* Intro */
+  .intro {margin-top:36px;text-align:center;animation: fadeIn 2s;}
+  @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+  .intro h2 {font-size:2rem; background:linear-gradient(45deg,#f368e0,#48dbfb);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+  .intro p {margin-top:12px;color:#444;}
+
+  /* Gallery */
+  .gallery {
+    display:flex; gap:18px; margin-top:28px; justify-content:center; flex-wrap:wrap;
+  }
+  .gallery img {
+    width:calc(33% - 12px); min-width:220px; height:170px; object-fit:cover;
+    border-radius:20px; box-shadow:0 6px 14px rgba(0,0,0,0.15);
+    transition: transform .6s ease, box-shadow .6s ease, filter .6s;
+  }
+  .gallery img:hover {
+    transform: translateY(-8px) scale(1.05) rotate(-1deg);
+    box-shadow:0 12px 22px rgba(0,0,0,0.25);
+    filter: saturate(1.3);
+  }
+
+  /* Menu */
+  .menu-section {margin-top:60px;text-align:center;}
+  .menu-section h2 {
+    font-size:1.9rem;
+    background:linear-gradient(45deg,#ff9f43,#ee5253);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .menu-table {
+    margin-top:20px; width:100%; border-collapse:collapse; overflow:hidden;
+    border-radius:16px; background: #fff;
+    box-shadow:0 8px 16px rgba(0,0,0,0.12);
+    animation: fadeInUp 1.5s;
+  }
+  .menu-table th, .menu-table td {
+    padding:16px 20px; border-bottom:1px solid #eee; text-align:left;
+  }
+  .menu-table thead th {
+    background: linear-gradient(135deg,#ff6b6b,#feca57);
+    color: #fff; text-align:center; font-weight:600;
+  }
+  .menu-table tbody tr:hover {
+    background: linear-gradient(90deg,#fdfbfb,#ebedee);
+    transition: background .4s;
+  }
+
+  /* Footer */
+  .site-footer {
+    margin-top:70px; background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    color: var(--brown-900);
+    padding:26px 0; text-align:center;
+    animation: fadeIn 2s;
+    border-top: 2px solid rgba(0,0,0,0.05);
+  }
+
+  @media(max-width:880px){
+    .banner{height:260px}
+    .banner-text h1{font-size:2rem}
+    .gallery img{height:130px}
+  }
+  @media(max-width:520px){
+    .nav{display:none}
+    .logo{font-size:1.1rem}
+    .banner{height:200px}
+  }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="main.html">🌿 Chill Coffee</a>
+      <nav class="nav">
+        <a href="main.html" aria-current="page">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="banner">
+    <img src="https://noithatanthinhphat.vn/wp-content/uploads/2024/03/thiet-ke-quan-cafe-chill-4.jpg" alt="Không gian thư giãn" class="banner-img">
+    <div class="banner-text">
+      <h1>Chill Coffee</h1>
+      <p>Chill cùng hương vị - Thư giãn từng khoảnh khắc</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="intro">
+      <h2>☕ Chào mừng đến với Chill Coffe</h2>
+      <p>Thưởng thức cà phê trong không gian chill nhẹ, hòa mình cùng thiên nhiên và giai điệu lofi.</p>
+      <div class="gallery">
+        <img src="https://vinaly.vn/wp-content/uploads/2021/08/ly-tach-ca-phe-loai-pha-black-hot-latte-nen-1.jpg" alt="Ly cà phê chill">
+        <img src="https://mia.vn/media/uploads/blog-du-lich/ghe-sunset-chill-coffee-tan-huong-thien-nhien-bao-loc-tuoi-mat-05-1654411098.jpeg" alt="Cà phê sáng thư giãn">
+        <img src="https://static.vinwonders.com/production/quan-cafe-yen-tinh-o-ha-noi-8.jpg" alt="Không gian quán yên tĩnh">
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2>🍹 Menu đồ uống</h2>
+      <table class="menu-table">
+        <thead>
+          <tr><th>Tên</th><th>Giá</th><th>Mô tả</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Espresso</td><td>40.000₫</td><td>Vị đậm đà, đánh thức tinh thần</td></tr>
+          <tr><td>Cappuccino</td><td>55.000₫</td><td>Béo ngậy, cân bằng hoàn hảo</td></tr>
+          <tr><td>Latte Trà Xanh</td><td>65.000₫</td><td>Thơm dịu, thanh mát</td></tr>
+          <tr><td>Cold Brew</td><td>60.000₫</td><td>Ủ lạnh, hương vị êm dịu</td></tr>
+          <tr><td>Trà Hoa Cúc</td><td>45.000₫</td><td>Thư giãn, tốt cho giấc ngủ</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Chill Coffee | Chill cùng hương vị</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    let lastScroll = 0;
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll < lastScroll) {
+        header.classList.add('show');
+      } else {
+        header.classList.remove('show');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+</body>
+</html>

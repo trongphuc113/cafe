@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chill Coffe - Giới thiệu</title>
+  <style>
+  :root {
+    --brown-900: #2c1810;
+    --green-light: #d9f8f2;
+    --yellow-light: #fff7d1;
+    --pink-light: #ffe0ec;
+  }
+  * {box-sizing: border-box;margin:0;padding:0;}
+  body {
+    font-family:'Segoe UI',Roboto,Arial,sans-serif;
+    background: linear-gradient(135deg,var(--green-light),var(--yellow-light),var(--pink-light));
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    color: var(--brown-900);
+    line-height: 1.6;
+  }
+  @keyframes gradientMove {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  /* Header */
+  .site-header {
+    position: fixed;
+    top: -100px; left: 0; width:100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: top 0.6s ease, opacity 0.6s ease;
+    opacity: 0; z-index: 1000;
+  }
+  .site-header.show {top:0;opacity:1;}
+  .container{max-width:1100px;margin:0 auto;padding:18px 20px;}
+  .header-inner{display:flex;align-items:center;justify-content:space-between}
+  .logo {
+    font-weight:800;font-size:1.4rem;text-decoration:none;
+    background: linear-gradient(45deg,#ff6b6b,#f7d794,#1dd1a1);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .nav a {
+    margin-left:18px;text-decoration:none;color:var(--brown-900);
+    padding:8px 14px;border-radius:20px;transition:.3s;
+  }
+  .nav a:hover,.nav a[aria-current="page"] {
+    background:linear-gradient(135deg,#ff9ff3,#feca57);
+    color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* About */
+  main {padding-top:120px;}
+  h2 {
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:20px;
+    background:linear-gradient(45deg,#48dbfb,#ff9f43);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  h3 {
+    margin:16px 0 8px;
+    background:linear-gradient(45deg,#f368e0,#10ac84);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .about-grid {
+    display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;
+  }
+  .about-text p {
+    background:#fff; padding:14px; border-radius:14px;
+    box-shadow:0 6px 12px rgba(0,0,0,0.08);
+    margin-bottom:12px;
+  }
+  .video-wrapper video {
+    width:100%; height:220px;
+    border-radius:14px; box-shadow:0 8px 16px rgba(0,0,0,0.12);
+    object-fit:cover;
+  }
+  .music {margin-top:14px; text-align:center;}
+  .music p {font-weight:600;margin-bottom:6px;}
+  .music audio {width:100%;border-radius:8px;}
+  .music button {
+    margin-top:10px;
+    padding:8px 16px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(45deg,#ff9f43,#48dbfb);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  /* Highlight Drinks */
+  .highlight-drinks {
+    margin-top:50px;
+    text-align:center;
+  }
+  .highlight-drinks h2 {
+    font-size:2rem;
+    margin-bottom:28px;
+    background:linear-gradient(45deg,#ff9f43,#00d2d3);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .drinks-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+  }
+  .drink {
+    background:rgba(255,255,255,0.85);
+    padding:16px;
+    border-radius:16px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.1);
+    transition:transform .4s ease,box-shadow .4s ease;
+  }
+  .drink:hover {
+    transform:translateY(-6px) scale(1.03);
+    box-shadow:0 12px 22px rgba(0,0,0,0.2);
+  }
+  .drink img {
+    width:100%;height:160px;object-fit:cover;
+    border-radius:12px;margin-bottom:12px;
+  }
+  .drink h4 {
+    margin:8px 0;font-size:1.1rem;
+    background:linear-gradient(45deg,#ee5253,#5f27cd);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .drink p {font-size:0.9rem;color:#444;}
+
+  /* Stats */
+  .info-box {
+    margin-top:50px;padding:22px;
+    background:rgba(255,255,255,0.8);
+    border-radius:16px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.1);
+    text-align:center;
+  }
+  .stats {display:flex;gap:20px;margin-top:18px;flex-wrap:wrap;}
+  .stat {
+    flex:1;min-width:140px;
+    background:#fff;
+    border-radius:14px;
+    padding:16px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .stat:hover {transform:translateY(-6px) scale(1.03);box-shadow:0 12px 24px rgba(0,0,0,0.2);}
+  .stat-value {
+    font-size:1.8rem;font-weight:700;
+    background:linear-gradient(45deg,#ff6b6b,#48dbfb);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .stat-label {margin-top:6px;font-size:0.9rem;color:#555;}
+
+  /* Footer */
+  .site-footer {
+    margin-top:60px;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(6px);
+    padding:22px 0;
+    border-top:2px solid rgba(0,0,0,0.05);
+    text-align:center;
+    font-weight:500;
+  }
+
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="main.html">🌿 Chill Coffee</a>
+      <nav class="nav">
+        <a href="main.html">Trang chủ</a>
+        <a href="about.html" aria-current="page">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container about-page">
+    <section class="about-intro">
+      <h2>✨ Về chúng tôi</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Lịch sử thành lập</h3>
+          <p>Hương Sông bắt đầu vào năm 2015 với mong muốn tạo ra một không gian nơi mọi người có thể thưởng thức cà phê chất lượng và thư giãn...</p>
+          <h3>Không gian phục vụ</h3>
+          <p>Quán có 2 tầng, nhiều chỗ ngồi êm ái, ánh sáng tự nhiên và góc sách.</p>
+        </div>
+        <div class="about-media">
+          <div class="video-wrapper">
+            <video controls autoplay muted loop>
+              <source src="https://cdn.pixabay.com/video/2022/10/08/133988-758552232_large.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ video.
+            </video>
+          </div>
+          <!-- Nhạc nền -->
+          <div class="music">
+            <p>🎵 Nhạc nền (bật/tắt):</p>
+            <audio id="bgMusic" autoplay loop muted>
+              <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_ebef3eab56.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+              Trình duyệt của bạn không hỗ trợ audio.
+            </audio>
+            <button onclick="toggleSound()">🔊 Bật/Tắt nhạc</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drinks Section -->
+    <section class="highlight-drinks">
+      <h2>☕ Đồ uống nổi bật</h2>
+      <div class="drinks-grid">
+        <div class="drink">
+          <img src="https://winci.com.vn/wp-content/uploads/2023/09/Cach-Pha-Che-Espresso.jpg" alt="Espresso đậm vị">
+          <h4>Espresso Đậm Vị</h4>
+          <p>Hương vị mạnh mẽ, crema mịn – lựa chọn của người yêu cà phê truyền thống.</p>
+        </div>
+        <div class="drink">
+          <img src="https://bizweb.dktcdn.net/100/418/498/files/zap-latte-coconut-sua-dua-ngay-10ml-20mg-96e467b6-2cec-4896-92d6-ef91988cb5ee.png?v=1617614339994" alt="Latte Hương Dừa">
+          <h4>Latte Hương Dừa</h4>
+          <p>Sự kết hợp tinh tế giữa sữa tươi béo ngậy và vị dừa ngọt ngào.</p>
+        </div>
+        <div class="drink">
+          <img src="https://winci.com.vn/wp-content/uploads/2024/01/Cach-Lam-Cold-Brew-Cam-Sa-Thuc-Uong-Thanh-Thoi-Va-Mat-Lanh.jpg" alt="Cold Brew Cam">
+          <h4>Cold Brew Cam</h4>
+          <p>Cà phê ủ lạnh 12h kết hợp với vị cam tươi mát, mang lại trải nghiệm độc đáo.</p>
+        </div>
+        <div class="drink">
+          <img src="https://luyutea.vn/wp-content/uploads/2024/08/HTC_1-1-1024x1024-1.jpg" alt="Trà Hoa Quả Nhiệt Đới">
+          <h4>Trà Hoa Quả Nhiệt Đới</h4>
+          <p>Sự pha trộn của trà thảo mộc và nhiều loại trái cây, thanh mát không caffein.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-box">
+      <h3>📊 Một vài con số</h3>
+      <div class="stats">
+        <div class="stat"><div class="stat-value">2015</div><div class="stat-label">Năm thành lập</div></div>
+        <div class="stat"><div class="stat-value">2</div><div class="stat-label">Tầng phục vụ</div></div>
+        <div class="stat"><div class="stat-value">50+</div><div class="stat-label">Loại đồ uống</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year2"></span> Chill Coffee | Chill cùng hương vị</p>
+  </footer>
+
+  <script>
+    document.getElementById('year2').textContent=new Date().getFullYear();
+    let lastScroll=0;const header=document.querySelector('.site-header');
+    window.addEventListener('scroll',()=>{
+      const currentScroll=window.pageYOffset;
+      if(currentScroll<lastScroll){header.classList.add('show');}
+      else{header.classList.remove('show');}
+      lastScroll=currentScroll;
+    });
+
+    function toggleSound(){
+      const music = document.getElementById('bgMusic');
+      music.muted = !music.muted;
+    }
+  </script>
+</body>
+</html>
