@@ -2,276 +2,65 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trường Trung Cấp Việt Nhật</title>
-  <style>
-  :root {
-    --brown-900: #2c1810;
-    --green-light: #d9f8f2;
-    --yellow-light: #fff7d1;
-    --pink-light: #ffe0ec;
-  }
-  * {box-sizing: border-box;margin:0;padding:0;}
-  body {
-    font-family:'Segoe UI',Roboto,Arial,sans-serif;
-    background: linear-gradient(135deg,var(--green-light),var(--yellow-light),var(--pink-light));
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    color: var(--brown-900);
-    line-height: 1.6;
-  }
-  @keyframes gradientMove {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
-
-  /* Header */
-  .site-header {
-    position: fixed;
-    top: -100px; left: 0; width:100%;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transition: top 0.6s ease, opacity 0.6s ease;
-    opacity: 0; z-index: 1000;
-  }
-  .site-header.show {top:0;opacity:1;}
-  .container{max-width:1100px;margin:0 auto;padding:18px 20px;}
-  .header-inner{display:flex;align-items:center;justify-content:space-between}
-  .logo {
-    font-weight:800;font-size:1.4rem;text-decoration:none;
-    background: linear-gradient(45deg,#ff6b6b,#f7d794,#1dd1a1);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .nav a {
-    margin-left:18px;text-decoration:none;color:var(--brown-900);
-    padding:8px 14px;border-radius:20px;transition:.3s;
-  }
-  .nav a:hover,.nav a[aria-current="page"] {
-    background:linear-gradient(135deg,#ff9ff3,#feca57);
-    color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  /* About */
-  main {padding-top:120px;}
-  h2 {
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:20px;
-    background:linear-gradient(45deg,#48dbfb,#ff9f43);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  h3 {
-    margin:16px 0 8px;
-    background:linear-gradient(45deg,#f368e0,#10ac84);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .about-grid {
-    display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;
-  }
-  .about-text p {
-    background:#fff; padding:14px; border-radius:14px;
-    box-shadow:0 6px 12px rgba(0,0,0,0.08);
-    margin-bottom:12px;
-  }
-  .video-wrapper video {
-    width:100%; height:220px;
-    border-radius:14px; box-shadow:0 8px 16px rgba(0,0,0,0.12);
-    object-fit:cover;
-  }
-  .music {margin-top:14px; text-align:center;}
-  .music p {font-weight:600;margin-bottom:6px;}
-  .music audio {width:100%;border-radius:8px;}
-  .music button {
-    margin-top:10px;
-    padding:8px 16px;
-    border:none;
-    border-radius:20px;
-    background:linear-gradient(45deg,#ff9f43,#48dbfb);
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,0.15);
-  }
-
-  /* Highlight Drinks */
-  .highlight-drinks {
-    margin-top:50px;
-    text-align:center;
-  }
-  .highlight-drinks h2 {
-    font-size:2rem;
-    margin-bottom:28px;
-    background:linear-gradient(45deg,#ff9f43,#00d2d3);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-  .drinks-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:24px;
-  }
-  .drink {
-    background:rgba(255,255,255,0.85);
-    padding:16px;
-    border-radius:16px;
-    box-shadow:0 6px 14px rgba(0,0,0,0.1);
-    transition:transform .4s ease,box-shadow .4s ease;
-  }
-  .drink:hover {
-    transform:translateY(-6px) scale(1.03);
-    box-shadow:0 12px 22px rgba(0,0,0,0.2);
-  }
-  .drink img {
-    width:100%;height:160px;object-fit:cover;
-    border-radius:12px;margin-bottom:12px;
-  }
-  .drink h4 {
-    margin:8px 0;font-size:1.1rem;
-    background:linear-gradient(45deg,#ee5253,#5f27cd);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-  .drink p {font-size:0.9rem;color:#444;}
-
-  /* Stats */
-  .info-box {
-    margin-top:50px;padding:22px;
-    background:rgba(255,255,255,0.8);
-    border-radius:16px;
-    box-shadow:0 6px 14px rgba(0,0,0,0.1);
-    text-align:center;
-  }
-  .stats {display:flex;gap:20px;margin-top:18px;flex-wrap:wrap;}
-  .stat {
-    flex:1;min-width:140px;
-    background:#fff;
-    border-radius:14px;
-    padding:16px;
-    box-shadow:0 6px 14px rgba(0,0,0,0.12);
-    transition:transform .4s ease, box-shadow .4s ease;
-  }
-  .stat:hover {transform:translateY(-6px) scale(1.03);box-shadow:0 12px 24px rgba(0,0,0,0.2);}
-  .stat-value {
-    font-size:1.8rem;font-weight:700;
-    background:linear-gradient(45deg,#ff6b6b,#48dbfb);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .stat-label {margin-top:6px;font-size:0.9rem;color:#555;}
-
-  /* Footer */
-  .site-footer {
-    margin-top:60px;
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(6px);
-    padding:22px 0;
-    border-top:2px solid rgba(0,0,0,0.05);
-    text-align:center;
-    font-weight:500;
-  }
-
-  @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trường Trung Cấp Việt Nhật - Trang Chủ</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="main.html">🌿 Trường Trung Cấp Việt Nhật</a>
-      <nav class="nav">
-        <a href="main.html">Trang chủ</a>
-        <a href="about.html" aria-current="page">Giới thiệu</a>
-        <a href="contact.html">Liên hệ</a>
+    <div class="container nav-wrap">
+      <h1 class="logo">Trường Trung Cấp <span class="accent">Việt Nhật</span></h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
       </nav>
+    </div>
+    <div class="banner">
+      <img src="assets/banner.jpg" alt="Banner Trường Việt Nhật">
+      <div class="banner-text">
+        <h2>Chào mừng đến với Trường Trung Cấp Việt Nhật</h2>
+        <p>Học nghề chuyên sâu - Khởi đầu vững vàng</p>
+      </div>
     </div>
   </header>
 
-  <main class="container about-page">
-    <section class="about-intro">
-      <h2>✨ Về chúng tôi</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <h3>Lịch sử thành lập</h3>
-          <p>“Trường Trung cấp Việt – Nhật được UBND tỉnh Long An thành lập năm 2010 (tháng 3), do sự hợp tác giữa Đồng Tâm Group và Tập đoàn Aso Juku (Nhật Bản).”...</p>
-          <h3>Không gian Trường </h3>
-          <p>Trường có 3 tầng, nhiều phòng học đầy đủ trang thiết bị cho học sinh.</p>
-        </div>
-        <div class="about-media">
-          <div class="video-wrapper">
-            <video controls autoplay muted loop>
-              <source src="https://www.facebook.com/trungcapvietnhat/videos/trung-c%E1%BA%A5p-vi%E1%BB%87t-nh%E1%BA%ADtn%C6%A1i-%C6%B0%E1%BB%9Bc-m%C6%A1-%C4%91%E1%BA%A1i-h%E1%BB%8Dc-th%C3%A0nh-hi%E1%BB%87n-th%E1%BB%B1c-%C4%91a-d%E1%BA%A1ng-ng%C3%A0nh-ngh%E1%BB%81-ph%C3%B9-h%E1%BB%A3p/474275941859563/" type="video/mp4">
-              Trình duyệt của bạn không hỗ trợ video.
-            </video>
-          </div>
-          <!-- Nhạc nền -->
-          <div class="music">
-            <p>🎵 Nhạc nền (bật/tắt):</p>
-            <audio id="bgMusic" autoplay loop muted>
-              <source src="https://www.facebook.com/trungcapvietnhat/videos/trung-c%E1%BA%A5p-vi%E1%BB%87t-nh%E1%BA%ADtn%C6%A1i-%C6%B0%E1%BB%9Bc-m%C6%A1-%C4%91%E1%BA%A1i-h%E1%BB%8Dc-th%C3%A0nh-hi%E1%BB%87n-th%E1%BB%B1c-%C4%91a-d%E1%BA%A1ng-ng%C3%A0nh-ngh%E1%BB%81-ph%C3%B9-h%E1%BB%A3p/474275941859563/" type="audio/mpeg">
-              Trình duyệt của bạn không hỗ trợ audio.
-            </audio>
-            <button onclick="toggleSound()">🔊 Bật/Tắt nhạc</button>
-          </div>
-        </div>
-      </div>
+  <main class="container">
+    <section class="subjects">
+      <h2>Môn học nổi bật</h2>
+      <table class="subjects-table">
+        <thead>
+          <tr><th>Môn học</th><th>Giảng viên</th><th>Mô tả</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Công nghệ thông tin</td><td>Th.S. Nguyễn Văn A</td><td>Lập trình, cơ sở dữ liệu, mạng máy tính.</td></tr>
+          <tr><td>Quản trị kinh doanh</td><td>Th.S. Trần Thị B</td><td>Quản lý, marketing, pháp luật thương mại.</td></tr>
+          <tr><td>Kế toán doanh nghiệp</td><td>Cử nhân Lê Văn C</td><td>Hạch toán, báo cáo tài chính, thuế.</td></tr>
+          <tr><td>Điện công nghiệp & dân dụng</td><td>Kỹ sư Phạm D</td><td>Thiết kế mạch điện, an toàn, lắp đặt hệ thống.</td></tr>
+        </tbody>
+      </table>
     </section>
 
-    <!-- Drinks Section -->
-    <section class="highlight-drinks">
-      <h2>☕ Nhiều Môn học nổi bậc</h2>
-      <div class="drinks-grid">
-        <div class="drink">
-          <img src="https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/483360rda/anh-mo-ta.png" alt="Môn Công Nghệ Thông Tin">
-          <h4>Môn Công Nghệ Thông Tin</h4>
-          <p>Công nghệ thông tin là ngành học nghiên cứu và ứng dụng các hệ thống máy tính, phần mềm, mạng và dữ liệu để xử lý, lưu trữ, truyền tải thông tin. Môn học trang bị kiến thức về lập trình, phần cứng, mạng máy tính, cơ sở dữ liệu, trí tuệ nhân tạo và an ninh mạng, giúp người học có khả năng vận dụng CNTT vào học tập, công việc và đời sống..</p>
-        </div>
-        <div class="drink">
-          <img src="https://greenwich.edu.vn/wp-content/uploads/2023/12/quan-tri-kinh-doanh-hoc-nhung-gi.png" alt="Môn Quản Trị Kinh Doanh ">
-          <h4>Môn Quản Trị Kinh Doanh</h4>
-          <p>Quản trị kinh doanh là ngành học nghiên cứu cách tổ chức, điều hành và phát triển hoạt động kinh doanh của doanh nghiệp. Môn học giúp trang bị kiến thức về quản lý, marketing, tài chính, nhân sự và chiến lược, nhằm nâng cao hiệu quả kinh doanh và năng lực cạnh tranh..</p>
-        </div>
-        <div class="drink">
-          <img src="https://vieclamketoan.vn/blog/wp-content/uploads/2022/07/ke-toan-doanh-nghiep.jpg" alt="Môn Kế Toán Doanh Ngiệp">
-          <h4>Kế Toán Doanh Nghiệp</h4>
-          <p>Kế toán doanh nghiệp là môn học trang bị kiến thức và kỹ năng ghi chép, phân tích, kiểm soát và cung cấp thông tin tài chính trong hoạt động kinh doanh. Môn học giúp người học hiểu rõ tình hình tài chính, hỗ trợ nhà quản lý ra quyết định hiệu quả và đảm bảo tuân thủ pháp luật..</p>
-        </div>
-        <div class="drink">
-          <img src="https://namtrungsafety.com/wp-content/uploads/2023/05/dien-cong-nghiep.jpg" alt="Môn Điện Công Ngiệp Dân Dụng">
-          <h4>Môn Điện Công Nghiệp Dân Dụng</h4>
-          <p>Điện công nghiệp – dân dụng là môn học cung cấp kiến thức và kỹ năng về thiết kế, lắp đặt, vận hành và bảo trì hệ thống điện trong sản xuất công nghiệp và sinh hoạt hằng ngày. Môn học giúp người học nắm vững an toàn điện, sử dụng thiết bị điện hiệu quả và ứng dụng vào thực tế công việc..</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-box">
-      <h3>📊 Một số môn khác</h3>
-      <div class="stats">
-        <div class="stat"><div class="stat-value">2010</div><div class="stat-label">Năm Thành Lập</div></div>
-        <div class="stat"><div class="stat-value">3</div><div class="stat-label">Tầng Học</div></div>
-        <div class="stat"><div class="stat-value">5</div><div class="stat-label">Ngành Nghề </div></div>
+    <section class="gallery">
+      <h2>Hình ảnh minh họa</h2>
+      <div class="grid">
+        <figure><img src="assets/class1.jpg" alt="Phòng học 1"><figcaption>Phòng thực hành</figcaption></figure>
+        <figure><img src="assets/class2.jpg" alt="Không gian trường"><figcaption>Không gian học tập</figcaption></figure>
+        <figure><img src="assets/class3.jpg" alt="Thư viện"><figcaption>Thư viện</figcaption></figure>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year2"></span> Trường Trung Cấp Việt Nhật | Học Để Vương Lên Tầm Cao Mới </p>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Trường Trung Cấp Việt Nhật</p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('year2').textContent=new Date().getFullYear();
-    let lastScroll=0;const header=document.querySelector('.site-header');
-    window.addEventListener('scroll',()=>{
-      const currentScroll=window.pageYOffset;
-      if(currentScroll<lastScroll){header.classList.add('show');}
-      else{header.classList.remove('show');}
-      lastScroll=currentScroll;
-    });
-
-    function toggleSound(){
-      const music = document.getElementById('bgMusic');
-      music.muted = !music.muted;
-    }
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
