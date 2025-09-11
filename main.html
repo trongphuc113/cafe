@@ -1,62 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Giới thiệu - Trường Việt Nhật</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Giới thiệu - Trường Trung Cấp Việt Nhật</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <h1 class="logo">Trường Trung Cấp <span class="accent">Việt Nhật</span></h1>
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="about.html">Giới thiệu</a></li>
-          <li><a href="contact.html">Liên hệ</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <h1>Giới thiệu</h1>
+    <p>Về Trường Trung Cấp Việt Nhật</p>
   </header>
 
-  <main class="container">
-    <section class="intro">
-      <h2>Về chúng tôi</h2>
-      <div class="card">
-        <h3>Lịch sử thành lập</h3>
-        <div class="history-box">
-          <p>Trường Trung Cấp Việt Nhật thành lập năm 2010 với sứ mệnh đào tạo nhân lực kỹ thuật chất lượng cao, kết hợp chương trình thực hành và hợp tác doanh nghiệp.</p>
-          <table class="history-table">
-            <tr><th>Năm</th><th>Sự kiện</th></tr>
-            <tr><td>2010</td><td>Thành lập trường</td></tr>
-            <tr><td>2015</td><td>Mở rộng phòng thực hành CNTT</td></tr>
-            <tr><td>2020</td><td>Hợp tác với nhiều doanh nghiệp lớn</td></tr>
-          </table>
-        </div>
-      </div>
+  <nav>
+    <a href="index.html">🏠 Trang chủ</a>
+    <a href="gioithieu.html">ℹ️ Giới thiệu</a>
+    <a href="lienhe.html">✉️ Liên hệ</a>
+  </nav>
 
-      <h3>Video giới thiệu</h3>
-      <div class="video-wrap">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video giới thiệu" frameborder="0" allowfullscreen></iframe>
-      </div>
+  <div class="container">
+    <h2>Lịch sử thành lập</h2>
+    <p>Trường Trung Cấp Việt Nhật được thành lập nhằm đào tạo nguồn nhân lực chất lượng cao trong nhiều lĩnh vực như CNTT, kinh doanh, kế toán và kỹ thuật điện.</p>
 
-      <h3>Nhạc nền</h3>
-      <audio controls>
-        <source src="assets/background-music.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ audio.
-      </audio>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year2"></span> Trường Trung Cấp Việt Nhật</p>
+    <div class="box">
+      <h3>Không gian phục vụ</h3>
+      <p>Khuôn viên rộng rãi, phòng học hiện đại, thư viện và khu thực hành đạt chuẩn quốc tế.</p>
     </div>
-  </footer>
 
-  <script>
-    document.getElementById('year2').textContent = new Date().getFullYear();
-  </script>
+    <h3>🎬 Video giới thiệu</h3>
+    <video controls width="100%" style="border-radius: 10px; margin-top: 10px;">
+      <source src="gioithieu.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video.
+    </video>
+  </div>
+
+  <footer>
+    <p>© 2025 Trường Trung Cấp Việt Nhật</p>
+  </footer>
 </body>
 </html>
