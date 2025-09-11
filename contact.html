@@ -1,66 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Liên hệ - Trường Việt Nhật</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Liên hệ - Trường Trung Cấp Việt Nhật</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <h1 class="logo">Trường Trung Cấp <span class="accent">Việt Nhật</span></h1>
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="about.html">Giới thiệu</a></li>
-          <li><a href="contact.html">Liên hệ</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <h1>Liên hệ</h1>
+    <p>Kết nối với Trường Trung Cấp Việt Nhật</p>
   </header>
 
-  <main class="container">
-    <section class="contact">
-      <h2>Liên hệ với chúng tôi</h2>
+  <nav>
+    <a href="index.html">🏠 Trang chủ</a>
+    <a href="gioithieu.html">ℹ️ Giới thiệu</a>
+    <a href="lienhe.html">✉️ Liên hệ</a>
+  </nav>
 
-      <form id="contactForm">
-        <label for="name">Họ và tên</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Nội dung</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <div class="form-actions">
-          <button type="submit">Gửi</button>
-          <a class="mailto-link" href="mailto:info@vietnhat.edu.vn?subject=Liên hệ từ website Trường Việt Nhật">Gửi bằng Email</a>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year3"></span> Trường Trung Cấp Việt Nhật</p>
+  <div class="container">
+    <div class="contact-info">
+      <h3>📍 Thông tin liên hệ</h3>
+      <p>Địa chỉ: 123 Nguyễn Trãi, Hà Nội</p>
+      <p>Điện thoại: 0123 456 789</p>
+      <p>Email: <a href="mailto:info@vietnhat.edu.vn">info@vietnhat.edu.vn</a></p>
     </div>
+
+    <form action="mailto:info@vietnhat.edu.vn" method="post" enctype="text/plain">
+      <h3>📩 Gửi tin nhắn</h3>
+      <input type="text" name="name" placeholder="Họ và tên" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Nội dung..." required></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Trường Trung Cấp Việt Nhật</p>
   </footer>
-
-  <script>
-    document.getElementById('year3').textContent = new Date().getFullYear();
-
-    // Xử lý form gửi bằng mailto
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('name').value.trim());
-      const email = encodeURIComponent(document.getElementById('email').value.trim());
-      const message = encodeURIComponent(document.getElementById('message').value.trim());
-      const subject = encodeURIComponent('Liên hệ từ website - ' + name);
-      const body = encodeURIComponent('Tên: ' + name + '\\nEmail: ' + email + '\\n\\nNội dung:\\n' + decodeURIComponent(message));
-      window.location.href = `mailto:info@vietnhat.edu.vn?subject=${subject}&body=${body}`;
-    });
-  </script>
 </body>
 </html>
