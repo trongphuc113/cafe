@@ -1,66 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Đăng nhập - Trường Việt Nhật</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Trang chủ - Trường Trung Cấp Việt Nhật</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <h1 class="logo">Trường Trung Cấp <span class="accent">Việt Nhật</span></h1>
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Trang chủ</a></li>
-          <li><a href="about.html">Giới thiệu</a></li>
-          <li><a href="contact.html">Liên hệ</a></li>
-          <li><a href="login.html">Đăng nhập</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <h1>TRƯỜNG TRUNG CẤP VIỆT NHẬT</h1>
+    <p>🌸 Nâng tầm tri thức – Vững bước tương lai 🌸</p>
   </header>
 
-  <main class="container">
-    <section class="login">
-      <h2>Đăng nhập hệ thống</h2>
-      <form id="loginForm">
-        <label for="username">Tài khoản</label>
-        <input type="text" id="username" name="username" required>
+  <nav>
+    <a href="index.html">🏠 Trang chủ</a>
+    <a href="gioithieu.html">ℹ️ Giới thiệu</a>
+    <a href="lienhe.html">✉️ Liên hệ</a>
+  </nav>
 
-        <label for="password">Mật khẩu</label>
-        <input type="password" id="password" name="password" required>
+  <div class="container">
+    <h2>Thông tin chung</h2>
+    <img src="truong.jpg" alt="Hình ảnh trường" class="img-banner">
 
-        <div class="form-actions">
-          <button type="submit">Đăng nhập</button>
-        </div>
-      </form>
-      <p class="note">Dùng tài khoản mẫu: <b>admin</b> / <b>123</b></p>
-    </section>
-  </main>
+    <h3>Bảng thông tin môn học & giảng viên</h3>
+    <table>
+      <tr>
+        <th>Tên môn</th>
+        <th>Giảng viên</th>
+        <th>Mô tả</th>
+      </tr>
+      <tr>
+        <td>Công nghệ thông tin</td>
+        <td>Thầy Nguyễn Văn A</td>
+        <td>Lập trình, mạng máy tính, cơ sở dữ liệu.</td>
+      </tr>
+      <tr>
+        <td>Quản trị kinh doanh</td>
+        <td>Cô Trần Thị B</td>
+        <td>Kỹ năng quản lý và điều hành doanh nghiệp.</td>
+      </tr>
+      <tr>
+        <td>Kế toán doanh nghiệp</td>
+        <td>Thầy Lê Văn C</td>
+        <td>Nghiệp vụ kế toán – tài chính doanh nghiệp.</td>
+      </tr>
+      <tr>
+        <td>Điện công nghiệp dân dụng</td>
+        <td>Cô Phạm Thị D</td>
+        <td>Kỹ thuật điện – bảo trì hệ thống điện.</td>
+      </tr>
+    </table>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year4"></span> Trường Trung Cấp Việt Nhật</p>
-    </div>
+  <footer>
+    <p>© 2025 Trường Trung Cấp Việt Nhật</p>
   </footer>
-
-  <script>
-    document.getElementById('year4').textContent = new Date().getFullYear();
-
-    // Xử lý đăng nhập đơn giản
-    document.getElementById('loginForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const user = document.getElementById('username').value.trim();
-      const pass = document.getElementById('password').value.trim();
-
-      if(user === "admin" && pass === "123"){
-        alert("Đăng nhập thành công!");
-        window.location.href = "index.html";
-      } else {
-        alert("Sai tài khoản hoặc mật khẩu!");
-      }
-    });
-  </script>
 </body>
 </html>
