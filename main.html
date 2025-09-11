@@ -2,233 +2,61 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trường Trung Cấp Việt Nhật - Trang chủ</title>
-  <style>
-  :root {
-    --brown-900: #2c1810;
-    --green-light: #d9f8f2;
-    --yellow-light: #fff7d1;
-    --pink-light: #ffe0ec;
-    --accent: #ffb347;
-    --accent2: #77dd77;
-  }
-  * {box-sizing: border-box; margin:0; padding:0;}
-  body {
-    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: linear-gradient(135deg, var(--green-light), var(--yellow-light), var(--pink-light));
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    color: var(--brown-900);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  @keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
-
-  /* Header */
-  .site-header {
-    position: fixed;
-    top: -100px;
-    left: 0; width: 100%;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transition: top 0.6s ease, opacity 0.6s ease;
-    opacity: 0;
-    z-index: 1000;
-  }
-  .site-header.show {
-    top: 0; opacity: 1;
-  }
-  .container {max-width:1100px;margin:0 auto;padding:14px 20px;}
-  .header-inner {display:flex;align-items:center;justify-content:space-between;}
-  .logo {
-    font-weight:800;font-size:1.4rem;text-decoration:none;
-    background: linear-gradient(45deg,#ff6b6b,#f7d794,#1dd1a1);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  .nav a {
-    margin-left:18px; text-decoration:none; color: var(--brown-900);
-    padding:8px 14px; border-radius:20px;
-    transition: all .3s ease;
-  }
-  .nav a:hover, .nav a[aria-current="page"] {
-    background: linear-gradient(135deg,#ff9ff3,#feca57);
-    color: #fff;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  /* Banner */
-  .banner {
-    position: relative; overflow: hidden; height: 380px; margin-top:80px;
-    border-radius: 0 0 30px 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  }
-  .banner-img {
-    width:100%; height:100%; object-fit: cover;
-    transform: scale(1.05);
-    animation: zoomIn 20s ease-in-out infinite alternate;
-    filter: brightness(0.9) saturate(1.2);
-  }
-  .banner::after {
-    content:""; position:absolute; inset:0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-  }
-  @keyframes zoomIn {
-    from {transform: scale(1.05);}
-    to {transform: scale(1.15);}
-  }
-  .banner-text {
-    position: absolute; left: 32px; bottom: 36px;
-    color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    animation: fadeInUp 1.6s ease;
-  }
-  @keyframes fadeInUp {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
-  }
-  .banner-text h1 {margin:0;font-size:2.6rem;}
-  .banner-text p {margin-top:8px;font-size:1.2rem;}
-
-  /* Intro */
-  .intro {margin-top:36px;text-align:center;animation: fadeIn 2s;}
-  @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
-  .intro h2 {font-size:2rem; background:linear-gradient(45deg,#f368e0,#48dbfb);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-  .intro p {margin-top:12px;color:#444;}
-
-  /* Gallery */
-  .gallery {
-    display:flex; gap:18px; margin-top:28px; justify-content:center; flex-wrap:wrap;
-  }
-  .gallery img {
-    width:calc(33% - 12px); min-width:220px; height:170px; object-fit:cover;
-    border-radius:20px; box-shadow:0 6px 14px rgba(0,0,0,0.15);
-    transition: transform .6s ease, box-shadow .6s ease, filter .6s;
-  }
-  .gallery img:hover {
-    transform: translateY(-8px) scale(1.05) rotate(-1deg);
-    box-shadow:0 12px 22px rgba(0,0,0,0.25);
-    filter: saturate(1.3);
-  }
-
-  /* Menu */
-  .menu-section {margin-top:60px;text-align:center;}
-  .menu-section h2 {
-    font-size:1.9rem;
-    background:linear-gradient(45deg,#ff9f43,#ee5253);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  .menu-table {
-    margin-top:20px; width:100%; border-collapse:collapse; overflow:hidden;
-    border-radius:16px; background: #fff;
-    box-shadow:0 8px 16px rgba(0,0,0,0.12);
-    animation: fadeInUp 1.5s;
-  }
-  .menu-table th, .menu-table td {
-    padding:16px 20px; border-bottom:1px solid #eee; text-align:left;
-  }
-  .menu-table thead th {
-    background: linear-gradient(135deg,#ff6b6b,#feca57);
-    color: #fff; text-align:center; font-weight:600;
-  }
-  .menu-table tbody tr:hover {
-    background: linear-gradient(90deg,#fdfbfb,#ebedee);
-    transition: background .4s;
-  }
-
-  /* Footer */
-  .site-footer {
-    margin-top:70px; background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(6px);
-    color: var(--brown-900);
-    padding:26px 0; text-align:center;
-    animation: fadeIn 2s;
-    border-top: 2px solid rgba(0,0,0,0.05);
-  }
-
-  @media(max-width:880px){
-    .banner{height:260px}
-    .banner-text h1{font-size:2rem}
-    .gallery img{height:130px}
-  }
-  @media(max-width:520px){
-    .nav{display:none}
-    .logo{font-size:1.1rem}
-    .banner{height:200px}
-  }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giới thiệu - Trường Việt Nhật</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="main.html">🌿 Trường Trung Cấp Việt Nhật</a>
-      <nav class="nav">
-        <a href="main.html" aria-current="page">Trang chủ</a>
-        <a href="about.html">Giới thiệu</a>
-        <a href="contact.html">Liên hệ</a>
+    <div class="container nav-wrap">
+      <h1 class="logo">Trường Trung Cấp <span class="accent">Việt Nhật</span></h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <div class="banner">
-    <img src="https://truongvietnhat.edu.vn/wp-content/uploads/2021/05/DSC00618-scaled.jpg" class="banner-img">
-    <div class="banner-text">
-      <h1>Trường Trung Cấp Việt Nhật</h1>
-      <p>Học tập Để Vươn Lên - Trong Từng Khoảnh Khắc</p>
-    </div>
-  </div>
-
   <main class="container">
     <section class="intro">
-      <h2>☕ Chào mừng đến với Trường Trung Cấp Việt Nhật</h2>
-      <p>Trường trung cấp việt nhật đào tạo đa ngành nghề (Quản trị kinh doanh, Kế toán doanh nghiệp, Điện công nghiệp – dân dụng, Xây dựng dân dụng & công nghiệp, Văn thư – lưu trữ, Quản trị hệ thống CNTT, v.v.), chú trọng thực hành, kỹ năng nghề và đảm bảo việc làm cho sinh viên sau khi tốt nghiệp..</p>
-      <div class="gallery">
-        <img src="https://truongvietnhat.edu.vn/wp-content/uploads/2021/05/DSC00618-scaled.jpg" alt="Trường Trung Cấp Việt Nhật">
-        <img src="https://dongtam.com.vn/wp-content/uploads/2024/09/1.-Toan-canh-buoi-le.jpg" alt="Tất cả Học Sinh Việt Nhật">
-        <img src="https://dongtam.com.vn/wp-content/uploads/2024/09/6.Ong-Tran-Trong-Nhan-Hieu-truong-truong-Trung-Cap-Viet-Nhat-doc-dien-van-khai-giang-nam-hoc-moi-1024x682.jpg" alt="Thầy Hiệu Trưởng Trường Việt Nhật Thầy Trần Trọng Nhân">
+      <h2>Về chúng tôi</h2>
+      <div class="card">
+        <h3>Lịch sử thành lập</h3>
+        <div class="history-box">
+          <p>Trường Trung Cấp Việt Nhật thành lập năm 2010 với sứ mệnh đào tạo nhân lực kỹ thuật chất lượng cao, kết hợp chương trình thực hành và hợp tác doanh nghiệp.</p>
+          <table class="history-table">
+            <tr><th>Năm</th><th>Sự kiện</th></tr>
+            <tr><td>2010</td><td>Thành lập trường</td></tr>
+            <tr><td>2015</td><td>Mở rộng phòng thực hành CNTT</td></tr>
+            <tr><td>2020</td><td>Hợp tác với nhiều doanh nghiệp lớn</td></tr>
+          </table>
+        </div>
       </div>
-    </section>
 
-    <section class="Tất Cả Nghành Nghề -section">
-      <h2>Nhiều Ngành Nghề Hay Ho</h2>
-      <table class="menu-table">
-        <thead>
-          <tr><th>Tên Môn</th><th>Tên Giáo Viên</th><th>Mô tả</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Công Nghệ Thông Tin</td><td>Thầy Nguyễn Hoàng Tân</td><td>Về Công Nghệm Thông Tin Rất Nhiều Môn Học Thú Vị</td></tr>
-          <tr><td>Kế Toán Doanh Nghiệp</td><td>Cô Anh Thư</td><td>Kế Toán Doanh Nghiệp Môn Này Cũng Vui</td></tr>
-          <tr><td>Văn Thư Lưu Trữ</td><td>Cô Thoa</td><td>Môn Này Đa Số viết Về Văn Hay</td></tr>
-          <tr><td>Điện Công Nghiệp Dân Dụng</td><td>Cô Thanh</td><td>Môn này Về Kỹ Thuật Điện Sửa Điện</td></tr>
-          <tr><td>Quản Trị Kinh Doanh</td><td>Thầy Tuấn Anh</td><td>Môn Này Học Về Kinh Doanh Như Khách Sạn Nhà Hàng v.v.</td></tr>
-        </tbody>
-      </table>
+      <h3>Video giới thiệu</h3>
+      <div class="video-wrap">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video giới thiệu" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <h3>Nhạc nền</h3>
+      <audio controls>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Trường Trung Cấp Việt Nhật | Đam Mê Học Tập </p>
+    <div class="container">
+      <p>&copy; <span id="year2"></span> Trường Trung Cấp Việt Nhật</p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
-    let lastScroll = 0;
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll < lastScroll) {
-        header.classList.add('show');
-      } else {
-        header.classList.remove('show');
-      }
-      lastScroll = currentScroll;
-    });
+    document.getElementById('year2').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
